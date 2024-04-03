@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Holhooja - Mudar Senha</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma-rtl.min.css">    
+    <style>
+        body {
+        height: 100vh;
+        width: 100%;
+        margin: 0px;
+        }
+
+        #div_senha{
+          border: 1px dashed rgb(77, 77, 77); 
+          padding-left: 10%; 
+          padding-right: 10%; 
+          padding-top: 15px;
+          padding-bottom: 15px;
+          margin-left: 10%;
+          margin-right: 10%;
+        }
+
+        .container {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        }
+        .content {
+        padding-right: 10px;
+        width: 300px;
+        height: 200px;
+        align-items: center;
+        }
+
+        .button{
+            width: 100px;
+        }
+
+    </style>
+</head>
+
+<body class="has-background-link-dark	" style="--bs-bg-opacity: 1;">
+    <div style="text-align: center;" class="container">
+        <article class="tile is-child notification is-info">
+        <p class="title">Troca de senha</p><br>
+        <p class="subtitle">Use senhas com mais de 8 dígitos <br></p>
+        <p class="subtitle">Não esqueça da sua senha<br></p>
+
+
+        <form action="/mudar_senha/{{id}}" method="POST">
+            <div  id="div_senha">
+                Digite a senha nova: <br>
+                <input class="input is-link", type="password", placeholder="Nova senha", name="senha1" required/>
+                <br><br>
+                Confirme a senha nova: <br>
+                <input class="input is-link", type="password", placeholder="Confirme a nova senha", name="senha2" required/>
+            </div><br><br>
+            
+            <input class="button is-small is-link" type="submit" value="Confirmar senha"><br><br><br>
+        </form>
+        <br><br><br> 
+    </div>
+</body>
+</html>

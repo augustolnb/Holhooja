@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Holhooja - Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma-rtl.min.css">    
+    <style>
+        body {
+        height: 100vh;
+        width: 100%;
+        margin: 0px;
+        }
+
+        #div_login{
+          padding-left: 10%; 
+          padding-right: 10%; 
+          padding-top: 15px;
+          padding-bottom: 15px;
+          margin-left: 10%;
+          margin-right: 10%;
+        }
+
+        .container {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        }
+        .content {
+        padding-right: 10px;
+        width: 300px;
+        height: 200px;
+        align-items: center;
+        }
+
+        .button{
+            width: 100px;
+        }
+
+    </style>
+</head>
+
+<body class="has-background-link-dark" style="--bs-bg-opacity: 1;">
+
+    <div  style="text-align: center; " class="container">
+        
+        <article class="tile is-child notification is-info">
+            <p class="title">SISTEMA HOLHOOJA</p>
+            <p class="subtitle"> Login <br></p>
+            <div id="div_login">
+                <form method="POST" action="">
+                    
+                    <input name="matricula" class="input is-link" type="text" placeholder="Matricula" required/><br><br>
+                    <input name="password" class="input is-link" type="password" placeholder="Senha" required/><br><br><br>
+                    <input class="button is-small is-link" type="submit" value="Login"><br><br><br>
+                </form>
+
+                   
+                
+                <a href="{{ url_for('register') }}" class="p-2 text-white">Ainda não tem acesso ao LPA?</a><br>
+                <a href="{{ url_for('register') }}" class="p-2 text-white">Solicite acesso aqui</a><br><br>
+                <a href="{{ url_for('recuperar') }}" class="p-2 text-white">Esqueceu sua senha?</a><br>
+            </div>
+        </article>
+    </div>
+</body>
+</html>
