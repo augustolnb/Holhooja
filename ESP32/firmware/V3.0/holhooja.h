@@ -2,7 +2,6 @@
 #include <WiFi.h>
 #include <PubSubClient.h>
 
-unsigned long lastTrigger = 0;
 boolean startTimer = false;
 int i;
 unsigned long lastSensorRead;
@@ -90,21 +89,20 @@ void IRAM_ATTR detectsMovement() {
   int led = 20;
   digitalWrite(led, HIGH);
   startTimer = true;
-  lastTrigger = millis();
+  lastSensorRead = millis();
 }
 
-void ler_Movimento(int timeSeconds, int led){
-  unsigned long now = millis();
+void ler_Movimento(int MovementTimer, int led){
+  unsigned long currentMillis = millis();
   boolean motion = false;
 
-  now = millis();
   if((digitalRead(led) == HIGH) && (motion == false)) {
-    Serial.println("MOVIMENTO DETECTADO!!!");
+    //Serial.println("MOVIMENTO DETECTADO!!!");
     motion = true;
   //    enviar_SinalIR();
   }
   // Turn off the LED after the number of seconds defined in the timeSeconds variable
-  if(startTimer && (now - lastTrigger > (timeSeconds*1000))) {
+  if(startTimer && (currentMillis - lastSensorRead > MovementTimer)) {
     Serial.println("Sem movimento...");
     digitalWrite(led, LOW);
     startTimer = false;
@@ -188,7 +186,7 @@ void callback(char* topic, byte* payload, unsigned int length){
     Serial.print("Mensagem entregue [");
     Serial.print(topic);
     Serial.print("] ");
-
+/*
     for(int i=0;i<length;i++){
       Serial.print((char)payload[i]);
     }
@@ -200,6 +198,7 @@ void callback(char* topic, byte* payload, unsigned int length){
     else{
       digitalWrite(20, HIGH);
     }
+*/
 }
 
 void connect_MQTT(IPAddress mqtt_server, int mqtt_port, PubSubClient *mqttClient, const char *topicoDHT){

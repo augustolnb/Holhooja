@@ -10,7 +10,7 @@
 //
 //  DEFINIÇÃO DAS CONSTANTES
 //
-const int timeSeconds = 4;
+const int MovementTimer = 4000; // 4s
 const int DHT11_PIN = 21;
 const int DHTReadTimer = 10000; // 10s
 const int led = 20;
@@ -47,7 +47,7 @@ PubSubClient mqttClient(wifiClient);
 void setup_wifi(const char *ssid,const char *password);
 void ler_SinalIR(IRrecv *irrecv);
 void IRAM_ATTR detectsMovement();
-void ler_Movimento(int timeSeconds, int led);
+void ler_Movimento(int MovementTimer, int led);
 void ler_DHT(DHTStable *DHT, PubSubClient *mqttClient, int DHT11_PIN, int DHTReadTimer);
 void connect_MQTT(IPAddress mqtt_server, int mqtt_port, PubSubClient *mqttClient, const char *topicoDHT);
 
@@ -67,11 +67,11 @@ void setup() {
 }
 
 void loop() {
-  //mqttClient.loop(); // Mantem a conexão com o broker
+  mqttClient.loop(); // Mantem a conexão com o broker
 
   ler_SinalIR(&irrecv); // Verificar se um sinal IR foi recebido
 
-  ler_Movimento(timeSeconds, led); // Aguarda timeSeconds para registrar um novo acionamento e no caso de movimento o led liga
+  ler_Movimento(MovementTimer, led); // Aguarda timeSeconds para registrar um novo acionamento e no caso de movimento o led liga
 
   ler_DHT(&DHT, &mqttClient, DHT11_PIN, DHTReadTimer);
 
