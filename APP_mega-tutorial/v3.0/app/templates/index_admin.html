@@ -1,0 +1,113 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Hi, {{ current_user.nome }}!</h1><br><br>
+
+    <div class="container bg-info rounded">
+        <br><h4>Dados do laboratório:</h4><br>
+        <div class="container border-top border-primary">
+            <div class="row ">
+
+            <div class="col-sm border-end border-primary">
+                <label>Temperatura</label>
+                <div><p>{{ sensores.temperatura }} ºC</p></div>
+            </div>
+
+            <div class="col-sm border-end border-primary">
+                <label>Umidade</label>
+                <div><p>{{ sensores.umidade }} %</p></div>
+            </div>
+
+            <div class="col-sm border-end border-primary">
+                <label>Movimento</label>
+                <div><p>{{ sensores.movimento }} </p></div>
+            </div>
+
+            <div class="col-sm">
+                <label>Luminosidade</label>
+                <div><p>{{ sensores.luminosidade }} </p></div>
+            </div>
+            </div>
+        </div>
+    </div>
+    <br><br>
+    <div class="container bg-info rounded">
+        <br><h4>Solicitação de acesso:</h4><br>
+        <div class="container ">
+            <button class="nav justify-content-end bg-primary rounded" type="button" data-bs-toggle="collapse" data-bs-target="#notifContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <div class="container">Notificações pendentes: {{ notifs. __len__() }}</div>
+            </button>
+            <div class="row ">                
+                <div class="collapse navbar-collapse" id="notifContent">
+                    <br>
+                    {% for notif in notifs %}
+                        <div class="container col-sm bg-secondary rounded "> <br>
+                            ID: {{notif.id}} <br>
+                            Nome: {{notif.nome}} <br>
+                            Matricula: {{notif.matricula}}                  
+                            <br><br>
+
+                            <div class="d-grid gap-2 d-md-block">
+                                <a href="/aprovar_status/{{notif.matricula}}">
+                                    <button class="btn btn-primary justify-content-end rounded" type="button">
+                                        Aprovar
+                                    </button>
+                                </a>
+                                <a href="/reprovar_status/{{notif.matricula}}">
+                                    <button class="btn btn-danger justify-content-end rounded" type="button">
+                                        Reprovar
+                                    </button>
+                                </a>
+                                <a href="#">
+                                    <button class="btn btn-info justify-content-end rounded" type="button">
+                                        Contatos
+                                    </button>
+                                </a>
+                            </div>
+
+                            <br>
+                        </div>
+                        <br>
+                    {% endfor %}    
+                </div>
+
+                <br>
+
+            </div>
+        </div>
+    </div>
+
+    <br><br>
+
+    <div class="container bg-info rounded">
+        <h4>Notificações:</h4>
+        <div class="container border-top border-primary">
+            <div class="row ">
+
+            <div class="col-sm border-end border-primary">
+                <label>Temperatura</label>
+                <div><p>{{ sensores.temperatura }} ºC</p></div>
+            </div>
+
+            
+            </div>
+        </div>
+    </div>
+
+    <br><br>
+
+    <div class="container bg-info rounded">
+        <h4>Central de comandos:</h4>
+        <div class="container border-top border-primary">
+            <div class="row ">
+
+            <div class="col-sm border-end border-primary">
+                <label>Temperatura</label>
+                <div><p>{{ sensores.temperatura }} ºC</p></div>
+            </div>
+
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Hi, {{ current_user.nome }}!</h1>
+    <label>Temperatura</label>
+    <div><p>{{ sensores.temperatura }} </p></div>
+
+    <label>Umidade</label>
+    <div><p>{{ sensores.umidade }} </p></div>
+
+    <label>Movimento</label>
+    <div><p>{{ sensores.movimento }} </p></div>
+
+    <label>Luminosidade</label>
+    <div><p>{{ sensores.luminosidade }} </p></div>
+{% endblock %}
