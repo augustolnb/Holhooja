@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% import 'bootstrap_wtf.html' as wtf %}
+
+{% block content %}
+       
+
+    <h3>Editar dados de usuário</h3><br>
+    
+    <label>Nome completo</label>
+    <div class="input-group mb-3">
+        <input type="text" class="form-control rounded" id="nome" placeholder="{{ user.nome }}" disabled>
+        <button class="btn-sm bg-light rounded" id="enableButton">Alterar</button>
+    </div>
+    <div class="mb-3">
+        <label>Email</label>
+        <input type="email" class="form-control" id="email" placeholder="{{ user.email }}" disabled>
+    </div>
+    <div class="mb-3">
+        <label>Curso</label>
+        <input type="text" class="form-control" id="curso" placeholder="{{ user.curso }}" disabled>
+    </div>
+    
+{% endblock %}
