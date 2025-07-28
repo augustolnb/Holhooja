@@ -91,7 +91,7 @@ flask run
 
 ## 6. Protocolo MQTT
 
-Conforme detalhado em `MQTT Tutorial.md`, o MQTT é a espinha dorsal da comunicação do sistema. Ele garante a entrega de mensagens entre o ESP32 e a aplicação Flask de forma eficiente e com baixo consumo de banda.
+Conforme detalhado em `esp32.md`, o MQTT é a espinha dorsal da comunicação do sistema. Ele garante a entrega de mensagens entre o ESP32 e a aplicação Flask de forma eficiente e com baixo consumo de banda.
 
 *   **Broker:** Utiliza-se o Mosquitto como broker.
 *   **Tópicos:** A comunicação é organizada por tópicos, separando os dados de cada sensor e os comandos para cada atuador.
