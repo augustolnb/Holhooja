@@ -50,26 +50,6 @@ O projeto é dividido em duas partes principais: o **Hardware Embarcado** e a **
 *   **Comunicação em Tempo Real:** WebSockets (com Flask-SocketIO) e MQTT (com Paho-MQTT)
 *   **Frontend:** HTML, CSS (com framework Bulma) e JavaScript.
 
-## 🏗️ Estrutura do Projeto
-
-```
-/
-├── App/V4.5/ # Aplicação Web em Python/Flask
-│ ├── app/ # Código fonte da aplicação
-│ │ ├── templates/ # Arquivos HTML
-│ │ ├── __init__.py # Inicialização do Flask
-│ │ ├── routes.py # Rotas da aplicação
-│ │ ├── models.py # Modelos do banco de dados
-│ │ └── ...
-│ ├── requirements.txt # Dependências Python
-│ └── ...
-├── ESP32/ # Firmware do microcontrolador
-│ ├── firmware/V4.0/ # Versão mais recente do firmware
-│ │ ├── main.ino # Código principal do ESP32
-│ │ └── holhooja.h # Funções auxiliares
-│ └── ...
-└── ...
-```
 
 ### Instalação
 
@@ -88,10 +68,6 @@ O projeto é dividido em duas partes principais: o **Hardware Embarcado** e a **
     *   Instale as bibliotecas necessárias...
     *   Configure as credenciais de Wi-Fi e MQTT.
     *   Compile e envie o firmware para o ESP32.
-
-## 🖼️ Screenshots
-
-(Adicione aqui alguns screenshots do dashboard e da aplicação)
 
 ## 🤝 Contribuições
 
